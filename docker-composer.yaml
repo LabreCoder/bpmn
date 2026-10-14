@@ -1,5 +1,16 @@
 services:
+  # Sua aplicação BPMN
+  bpmn-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    #restart: always
+
+  # Serviço do Camunda
   camunda:
     image: camunda/camunda-bpm-platform:latest
     ports:
       - "8080:8080"
+    #restart: always
